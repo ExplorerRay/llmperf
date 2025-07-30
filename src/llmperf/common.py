@@ -1,9 +1,7 @@
 from typing import List
-from llmperf.ray_clients.litellm_client import LiteLLMClient
 from llmperf.ray_clients.openai_chat_completions_client import (
     OpenAIChatCompletionsClient,
 )
-from llmperf.ray_clients.sagemaker_client import SageMakerClient
 from llmperf.ray_clients.vertexai_client import VertexAIClient
 from llmperf.ray_llm_client import LLMClient
 

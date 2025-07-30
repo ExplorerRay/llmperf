@@ -1,12 +1,13 @@
 FROM python:3.10-slim
 
-COPY . /llmperf
+COPY src /llmperf/src/
 
-RUN cd llmperf \
-    && pip install .
-
-COPY src/llmperf/sonnet.txt /usr/local/lib/python3.10/site-packages/llmperf/
+COPY pyproject.toml *.py /llmperf/
 
 WORKDIR /llmperf
 
-CMD ["/bin/bash"]
+RUN pip install .
+
+COPY src/llmperf/sonnet.txt /usr/local/lib/python3.10/site-packages/llmperf/
+
+ENTRYPOINT ["python", "token_benchmark_ray.py"]
