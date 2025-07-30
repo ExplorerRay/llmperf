@@ -9,6 +9,18 @@ cd llmperf
 pip install -e .
 ```
 
+## Docker
+```bash
+# Build the Docker image
+docker build -t llmperf .
+
+# Run token benchmark with container
+docker run --rm llmperf --model <model_name> ...
+```
+
+## Note
+This repo removes some original client supports such as litellm and boto3-related things.
+
 # Basic Usage
 
 We implement 2 tests for evaluating LLMs: a load test to check for performance and a correctness test to check for correctness.
