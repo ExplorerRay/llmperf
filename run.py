@@ -25,14 +25,15 @@ if __name__ == "__main__":
         # iterate token_confs (input/output #tokens)
         inputs = config.get("token_confs", {}).get("input", [])
         outputs = config.get("token_confs", {}).get("output", [])
-        for i, o in zip(inputs, outputs):
-            subprocess.run([
-                "python", "token_benchmark_ray.py",
-                "--model", model,
-                "--llm-api", "openai",
-                "--results-dir", "/results",
-                "--mean-input-tokens", str(i.get("mean")),
-                "--stddev-input-tokens", str(i.get("stddev")),
-                "--mean-output-tokens", str(o.get("mean")),
-                "--stddev-output-tokens", str(o.get("stddev")),
-            ])
+        for i in inputs:
+            for o in outputs:
+                subprocess.run([
+                    "python", "token_benchmark_ray.py",
+                    "--model", model,
+                    "--llm-api", "openai",
+                    "--results-dir", "/results",
+                    "--mean-input-tokens", str(i.get("mean")),
+                    "--stddev-input-tokens", str(i.get("stddev")),
+                    "--mean-output-tokens", str(o.get("mean")),
+                    "--stddev-output-tokens", str(o.get("stddev")),
+                ])

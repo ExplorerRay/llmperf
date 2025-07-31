@@ -20,7 +20,7 @@ token_confs:
   output:
     - name: "output-S" # < 100
       mean: 50
-      stddev: 40
+      stddev: 20
     - name: "output-M" # 100 - 350
       mean: 200
       stddev: 80
