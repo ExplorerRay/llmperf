@@ -1,0 +1,29 @@
+openai_api_base: "http://192.168.0.155/v1"
+openai_api_key: "LOCAL_OLLAMA" # Ollama doesn't require an API key, just make it not empty
+
+models:
+  - "llama2:7b"
+  - "mistral:7b"
+  - "falcon:7b"
+
+token_confs:
+  input:
+    - name: "input-S" # < 256
+      mean: 150
+      stddev: 100
+    - name: "input-M" # 256 - 1024
+      mean: 650
+      stddev: 250
+    - name: "input-L" # <= 8192
+      mean: 4000
+      stddev: 1000
+  output:
+    - name: "output-S" # < 100
+      mean: 50
+      stddev: 40
+    - name: "output-M" # 100 - 350
+      mean: 200
+      stddev: 80
+    - name: "output-L" # >= 350
+      mean: 480
+      stddev: 120

@@ -14,4 +14,5 @@ dependencies = ["pydantic<2.5",
                 "ray",
                 "num2words",
                 "transformers",
+                "pyyaml",
                 "tqdm"]

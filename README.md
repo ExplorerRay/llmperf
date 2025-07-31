@@ -15,7 +15,7 @@ pip install -e .
 docker build -t llmperf .
 
 # Run token benchmark with container
-docker run --rm llmperf --model <model_name> ...
+docker run --rm llmperf -v /path/to/your/results:/results -v $(pwd)/config.yml:/etc/config/config.yml
 ```
 
 ## Note

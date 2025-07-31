@@ -10,4 +10,4 @@ RUN pip install .
 
 COPY src/llmperf/sonnet.txt /usr/local/lib/python3.10/site-packages/llmperf/
 
-ENTRYPOINT ["python", "token_benchmark_ray.py"]
+ENTRYPOINT ["python", "run.py", "--config", "/etc/config/config.yml"]
